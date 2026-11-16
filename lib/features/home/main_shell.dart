@@ -135,7 +135,7 @@ class _MainShellState extends State<MainShell> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Welcome to sword drill™!',
+                            'Welcome to Sword Bible!',
                             style: AppTypography.display(fontSize: 24),
                           ),
                           const SizedBox(height: 12),

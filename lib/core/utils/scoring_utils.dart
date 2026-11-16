@@ -91,7 +91,7 @@ class ScoringUtils {
     final pct = (correctCount / totalQuestions) * 100;
     if (pct >= 100) {
       return (
-        title: 'Sword Drill™ Scholar',
+        title: 'Sword Bible Scholar',
         subtitle: 'Perfect round. No notes.',
         emoji: '👑',
       );

@@ -96,7 +96,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     }
                   },
                   child: Text(
-                    _step < 2 ? 'Continue →' : 'Enter Sword Drill™ →',
+                    _step < 2 ? 'Continue →' : 'Enter Sword Bible →',
                     style: AppTypography.display(
                       fontSize: 18,
                       color: Colors.white,

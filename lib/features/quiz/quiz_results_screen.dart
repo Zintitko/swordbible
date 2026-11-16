@@ -425,7 +425,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               ),
               onPressed: () => Navigator.of(context).pop(),
               child: Text(
-                'Back to Sword Drill™',
+                'Back to Sword Bible',
                 style: AppTypography.display(fontSize: 16, color: Colors.white),
               ),
             ),

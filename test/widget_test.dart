@@ -39,10 +39,10 @@ void main() {
     await tester.pumpWidget(SwordDrillApp(appState: appState));
     await tester.pumpAndSettle();
 
-    // Verify Home screen cards & AdMob banner slot
+    // Verify Home screen cards
     expect(find.textContaining('Today\'s Daily 5'), findsOneWidget);
     expect(find.textContaining('FREE PLAY'), findsOneWidget);
-    expect(find.textContaining('Presented by Christian Standard Bible'), findsOneWidget);
+    expect(find.textContaining('Sword Bible: Drill Trivia'), findsOneWidget);
 
     // Navigate to Quizzes tab
     await tester.tap(find.text('Quizzes'));
@@ -62,7 +62,7 @@ void main() {
     // Navigate to Profile tab
     await tester.tap(find.text('Profile'));
     await tester.pumpAndSettle();
-    expect(find.text('SWORD DRILL™ WRAPPED'), findsOneWidget);
+    expect(find.text('SWORD BIBLE WRAPPED'), findsOneWidget);
     expect(find.text('Current Streak'), findsOneWidget);
   });
 }

@@ -43,7 +43,7 @@ class _WrappedScreenState extends State<WrappedScreen> {
     final s = widget.appState;
     final slides = <_WrappedSlideData>[
       _WrappedSlideData(
-        tag: 'SWORD DRILL™ WRAPPED',
+        tag: 'SWORD BIBLE WRAPPED',
         emoji: '⚔️',
         headline: '${s.displayName},\nYour Year in the Word',
         statBig: '${s.totalPoints}',

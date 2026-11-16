@@ -235,7 +235,7 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'SWORD DRILL™ WRAPPED',
+                        'SWORD BIBLE WRAPPED',
                         style: AppTypography.body(
                           fontSize: 10.5,
                           fontWeight: FontWeight.w800,

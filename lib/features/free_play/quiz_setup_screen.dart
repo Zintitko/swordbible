@@ -82,7 +82,7 @@ class _QuizSetupScreenState extends State<QuizSetupScreen> {
                   style: AppTypography.display(fontSize: 26),
                 ),
                 Text(
-                  'Customize your Sword Drill™ session by length & focus.',
+                  'Customize your Sword Bible session by length & focus.',
                   style: AppTypography.body(
                     fontSize: 13.5,
                     color: AppColors.mutedForeground,
@@ -403,7 +403,7 @@ class _QuizSetupScreenState extends State<QuizSetupScreen> {
             onPressed: _startFreePlay,
             icon: const Icon(Icons.bolt_rounded, color: AppColors.neon),
             label: Text(
-              'Start Sword Drill™ ($_quizLength Questions)',
+              'Start Sword Bible ($_quizLength Questions)',
               style: AppTypography.display(fontSize: 18, color: Colors.white),
             ),
           ),

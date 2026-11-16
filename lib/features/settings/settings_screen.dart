@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../core/ads/ad_config.dart';
-import '../../core/ads/ad_service.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_typography.dart';
 import '../../core/utils/scoring_utils.dart';
@@ -26,7 +24,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: Listenable.merge([widget.appState, AdService.instance]),
+      listenable: widget.appState,
       builder: (context, _) {
         final s = widget.appState;
         final categoryAvatars = BadgesAndAvatarsBank.avatars
@@ -340,102 +338,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
               const SizedBox(height: 16),
 
-              // 4. Google AdMob SDK Integration Console
-              Container(
-                padding: const EdgeInsets.all(18),
-                decoration: BoxDecoration(
-                  color: AppColors.card,
-                  borderRadius: BorderRadius.circular(22),
-                  border: Border.all(color: AppColors.primary.withValues(alpha: 0.4)),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.ads_click_rounded,
-                          color: AppColors.primary,
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          'GOOGLE ADMOB SDK INTEGRATION',
-                          style: AppTypography.body(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                            color: AppColors.primary,
-                            letterSpacing: 1.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'App ID: ${AdConfig.appId}\n'
-                      'Interstitials Shown: ${AdService.instance.interstitialsShown} • Rewarded Watched: ${AdService.instance.rewardedAdsWatched}',
-                      style: AppTypography.body(
-                        fontSize: 12,
-                        color: AppColors.mutedForeground,
-                      ),
-                    ),
-                    SwitchListTile.adaptive(
-                      contentPadding: EdgeInsets.zero,
-                      title: const Text('Enable AdMob Ads'),
-                      subtitle: const Text('Banner, Interstitial & Rewarded Ads'),
-                      value: AdService.instance.adsEnabled,
-                      onChanged: (v) => AdService.instance.setAdsEnabled(v),
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: OutlinedButton(
-                            onPressed: () {
-                              AdService.instance.showInterstitialAfterRound(
-                                force: true,
-                                onAdDismissed: () {
-                                  if (!mounted) return;
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text('Interstitial Ad triggered!'),
-                                      behavior: SnackBarBehavior.floating,
-                                    ),
-                                  );
-                                },
-                              );
-                            },
-                            child: const Text('Test Interstitial'),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: FilledButton(
-                            onPressed: () {
-                              AdService.instance.showRewardedAd(
-                                onRewardEarned: (amt, _) {
-                                  s.addBonusPointsFromAd(amt);
-                                  if (!mounted) return;
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Rewarded Ad completed! +$amt pts added.',
-                                      ),
-                                      behavior: SnackBarBehavior.floating,
-                                    ),
-                                  );
-                                },
-                              );
-                            },
-                            child: const Text('Test Rewarded (+200)'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 16),
-
               // Replay Tour & Onboarding
               Row(
                 children: [
@@ -467,14 +369,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Center(
                 child: Column(
                   children: [
-                    Image.asset(
-                      'assets/images/csb_mark_black.png',
-                      height: 28,
-                      errorBuilder: (_, _, _) => const SizedBox.shrink(),
-                    ),
-                    const SizedBox(height: 8),
                     Text(
-                      'Scripture quotations marked CSB have been taken from the Christian Standard Bible®, Copyright © 2017 by Holman Bible Publishers. Used by permission.',
+                      'Scripture quotations are used for educational trivia and Bible study.',
                       textAlign: TextAlign.center,
                       style: AppTypography.body(
                         fontSize: 11.5,
@@ -484,7 +380,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      'sword drill™ v1.1.0 (3076) • by Flannelgraph',
+                      'Sword Bible: Drill Trivia • v1.0.1',
                       style: AppTypography.body(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
