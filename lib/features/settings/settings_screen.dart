@@ -380,7 +380,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      'Sword Bible: Drill Trivia • v1.0.1',
+                      'Sword Bible: Drill Trivia • v1.0.2',
                       style: AppTypography.body(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,

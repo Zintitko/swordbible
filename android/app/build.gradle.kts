@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.storylabs.sword_drill"
+    namespace = "bible.sword"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

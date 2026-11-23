@@ -35,7 +35,7 @@ class BrandWordmark extends StatelessWidget {
               boxShadow: AppColors.brandShadow,
             ),
             child: Image.asset(
-              'assets/images/sword_drill_icon.png',
+              'assets/images/sword_bible_icon.png',
               fit: BoxFit.cover,
               errorBuilder: (_, _, _) => Icon(
                 Icons.bolt_rounded,

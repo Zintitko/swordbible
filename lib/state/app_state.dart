@@ -15,7 +15,7 @@ class AppState extends ChangeNotifier {
   bool _showOnGlobalLeaderboard = true;
   bool _familyModeEnabled = true;
   String _reminderTime = '08:00 AM';
-  bool _hasCompletedOnboarding = true;
+  bool _hasCompletedOnboarding = false;
   bool _showTourOverlay = false;
 
   // Core Stats & Daily 5
@@ -219,6 +219,8 @@ class AppState extends ChangeNotifier {
       _bestDaily5Score = prefs.getInt('sd_best_daily5') ?? _bestDaily5Score;
       _familyModeEnabled =
           prefs.getBool('sd_family_mode_enabled') ?? _familyModeEnabled;
+      _hasCompletedOnboarding =
+          prefs.getBool('sd_onboarding_done') ?? _hasCompletedOnboarding;
       notifyListeners();
     } catch (_) {
       // Safe fallback in unit tests
@@ -238,6 +240,7 @@ class AppState extends ChangeNotifier {
       await prefs.setInt('sd_best_streak', _bestStreak);
       await prefs.setInt('sd_best_daily5', _bestDaily5Score);
       await prefs.setBool('sd_family_mode_enabled', _familyModeEnabled);
+      await prefs.setBool('sd_onboarding_done', _hasCompletedOnboarding);
     } catch (_) {}
   }
 

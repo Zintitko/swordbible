@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sword_drill/core/theme/app_typography.dart';
-import 'package:sword_drill/core/utils/scoring_utils.dart';
-import 'package:sword_drill/main.dart';
-import 'package:sword_drill/state/app_state.dart';
+import 'package:sword_bible/core/theme/app_typography.dart';
+import 'package:sword_bible/core/utils/scoring_utils.dart';
+import 'package:sword_bible/main.dart';
+import 'package:sword_bible/state/app_state.dart';
 
 void main() {
   setUpAll(() {
@@ -32,11 +32,16 @@ void main() {
     expect(wrongScore.total, 0);
   });
 
-  testWidgets('SwordDrillApp renders Home, tabs, Daily 5, and AdMob banner', (
+  testWidgets('SwordDrillApp renders Onboarding, Home, tabs, Daily 5', (
     WidgetTester tester,
   ) async {
     final appState = AppState();
     await tester.pumpWidget(SwordDrillApp(appState: appState));
+    await tester.pumpAndSettle();
+
+    // First launch shows Onboarding; tap Skip to enter Home
+    expect(find.text('Skip'), findsOneWidget);
+    await tester.tap(find.text('Skip'));
     await tester.pumpAndSettle();
 
     // Verify Home screen cards

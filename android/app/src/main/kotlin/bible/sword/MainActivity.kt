@@ -1,4 +1,4 @@
-package com.storylabs.sword_drill
+package bible.sword
 
 import io.flutter.embedding.android.FlutterActivity
 

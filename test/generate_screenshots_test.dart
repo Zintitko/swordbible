@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sword_drill/core/theme/app_colors.dart';
-import 'package:sword_drill/core/theme/app_theme.dart';
-import 'package:sword_drill/core/theme/app_typography.dart';
-import 'package:sword_drill/data/models/models.dart';
-import 'package:sword_drill/data/seed/questions_bank.dart';
-import 'package:sword_drill/features/home/main_shell.dart';
-import 'package:sword_drill/features/quiz/question_play_screen.dart';
-import 'package:sword_drill/state/app_state.dart';
+import 'package:sword_bible/core/theme/app_colors.dart';
+import 'package:sword_bible/core/theme/app_theme.dart';
+import 'package:sword_bible/core/theme/app_typography.dart';
+import 'package:sword_bible/data/models/models.dart';
+import 'package:sword_bible/data/seed/questions_bank.dart';
+import 'package:sword_bible/features/home/main_shell.dart';
+import 'package:sword_bible/features/quiz/question_play_screen.dart';
+import 'package:sword_bible/state/app_state.dart';
 
 Future<void> _loadRealFonts() async {
   final projectRoot = '/Users/macbookpro/Documents/Bibble jesus/sword_drill';
@@ -107,7 +107,14 @@ void main() {
     WidgetTester tester,
   ) async {
     final baseDir = '/Users/macbookpro/Documents/Bibble jesus/screenshots';
-    final appState = AppState();
+    final appState = AppState()
+      ..completeOnboarding(
+        displayName: 'Berean Scholar',
+        username: 'berean_scholar',
+        avatarKey: 'sword',
+        knowledgeLevel: 2,
+        familyModeEnabled: true,
+      );
 
     // Target configurations:
     // 1. iPhone 6.1" -> 390x844 @ 3x = 1170x2532
